@@ -38,19 +38,20 @@ def analyze_project(image, project_name, project_description, project_status):
     You are a construction image validation system by the Government of India whose work is to validate the Statements 1. Project Description and 2. Project Completion 
     with the picture provided of the construction
 this is your rulebook for status verification
-    0: "0% empty plot of land with no signs of construction.",
-    5: "5% visible foundations or footings.",
-    10: "10% raised foundations to the plinth level.",
-    20: "20% completed lintel or beam structure.",
-    40: "40% roof structure in place.",
-    70: "70% visible flooring and plastering inside the structure.",
-    90: "90% all external finishes and electrical installations.",
-    100: "100% Completed building ready for handover"
+    0: "0% empty plot of land maybe a few signs of constructions , not necessary could be empty or grassy or with unrealated other buildings around it.",
+    5: "5% some rebar or foundation work , like clearning ground",
+    10: "10% foundations of the building should be visible somewhat , starting of construction",
+    20: "20% initial structure of a building should be visible.",
+    40: "40% roof structure in place look for structure with roof may not be complete doesnt need to be painted or plastered just look for structure.",
+    70: "70% visible flooring and plastering inside the structure, look for non painted buildings nearing completion with structured",
+    90: "90% almost complete building",
+    100: "100% Completed building "
 
     if the status provided by user doesnt match the picture (irrelevant pictures or under initial construction but claimed as completed by user) - return with 0 which means their statement is wrong 
 
     But if the project status matches the photo then you can return with 1 which means their statement is true
-
+    
+    remember to be a little lenient and check also with a few status below too if that matches (if user says 70 , check with 40 too) because users can put in a little more than usual sometimes.
     so for this project in the picture has been reported to be at {project_status}% what is your verification status (only one single digit is allowed as your output no text description at any cost) 
     """
 
